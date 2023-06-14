@@ -93,14 +93,13 @@ section {
   top: 40px;
   color: red;
   font-weight: lighter;
-}
-.newTaskHeading {
   cursor: pointer;
   max-width: 200px;
   overflow-wrap: break-word;
  left: 50%;
  transform: translatex(-50%);
 }
+
 .line {
   margin-top: 40px;
   border: 1px solid black;
