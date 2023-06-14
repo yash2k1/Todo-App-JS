@@ -105,7 +105,7 @@ section {
   border: 1px solid black;
 }
 .newTaskDescription {
-  /* text-align: center; */
+  text-align: center;
   font-size: 20px;
   color:black;
   max-width: 200px;
