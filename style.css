@@ -96,15 +96,22 @@ section {
 }
 .newTaskHeading {
   cursor: pointer;
+  max-width: 200px;
+  overflow-wrap: break-word;
+ left: 50%;
+ transform: translatex(-50%);
 }
 .line {
   margin-top: 40px;
   border: 1px solid black;
 }
 .newTaskDescription {
-  text-align: center;
+  /* text-align: center; */
   font-size: 20px;
   color:black;
+  max-width: 200px;
+  overflow-wrap: break-word;
+margin: auto;
 }
 .newTaskBtn {
   text-align: center;
@@ -191,6 +198,7 @@ to{
   margin-bottom: 10px;
   color: red;
   font-weight: bold;
+ 
 }
 input[type="text"] {
   width: 350px;
