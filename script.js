@@ -68,6 +68,9 @@ function popUp(button, heading, newTask) {
   closeBtn.addEventListener("click", () => {
     closeTask();
   });
+  // status btn
+  let statusAddBtn = true;
+
   // close popup function
   function closeTask() {
     section[0].classList.remove("blur");
@@ -79,6 +82,7 @@ function popUp(button, heading, newTask) {
     // removing the animation class
     popUp.classList.remove("popTransition");
   }
+
   // close the popup by add btn and creating new task card by clicking on add
   addBtn.addEventListener("click", () => {
     if (PopUpInput.value) {
@@ -86,19 +90,22 @@ function popUp(button, heading, newTask) {
       // PopUpInput.value is give the value that is taken from user input
       if (heading === "Add new list") {
         addNewCard(PopUpInput.value, !flag);
+         statusAddBtn = true;
+
       }
       if (heading === "Add new item") {
         // PopUpInput.value is give the value that is taken from user input
         // creating new subheading
         // close the popup by close btn and creating new task card by clicking on add
         subTask(PopUpInput.value, newTask);
+       statusAddBtn = false;
+
       }
     }
     // this is removing the section text if any card is being added
     if (section[0].childNodes.length !== 0) {
       textNode.remove();
     }
-    let statusAddBtn = true;
     // cheching the status Add Btn
     statusOfPopUp(statusAddBtn);
     closeTask();
