@@ -6,6 +6,7 @@ header[1].style.display = "none";
 let textNode = document.createElement("div");
 textNode.textContent = " No items in the todo list ";
 section[0].appendChild(textNode);
+//checking if textNode should visible or not
 if (section[0].childNodes.length === 0) {
   textNode.style.display = "block";
 }
@@ -20,7 +21,7 @@ addItems1.addEventListener("click", () => {
 function popUp(button, heading, newTask) {
   // disableing the buttons
   button.style.pointerEvents = "none";
-  // checking wherther add btn is click or not
+
   // popup
   let popUp = document.createElement("div");
   popUp.className = "popUp";
@@ -68,7 +69,7 @@ function popUp(button, heading, newTask) {
   closeBtn.addEventListener("click", () => {
     closeTask();
   });
-  // status btn
+  // status btn 
   let statusAddBtn = true;
 
   // close popup function
@@ -76,6 +77,7 @@ function popUp(button, heading, newTask) {
     section[0].classList.remove("blur");
     header[0].classList.remove("blur");
     header[1].classList.remove("blur");
+    //removing the pop from dom
     popUp.remove();
     // enabling buttons
     button.style.pointerEvents = "auto";
@@ -85,9 +87,9 @@ function popUp(button, heading, newTask) {
 
   // close the popup by add btn and creating new task card by clicking on add
   addBtn.addEventListener("click", () => {
+      // PopUpInput.value is give the value that is taken from user input
     if (PopUpInput.value) {
       let flag = "true"; //true is for subtask and false is for new task card
-      // PopUpInput.value is give the value that is taken from user input
       if (heading === "Add new list") {
         addNewCard(PopUpInput.value, !flag);
          statusAddBtn = true;
@@ -98,7 +100,7 @@ function popUp(button, heading, newTask) {
         // creating new subheading
         // close the popup by close btn and creating new task card by clicking on add
         subTask(PopUpInput.value, newTask);
-       statusAddBtn = false;
+       statusAddBtn = false ;
 
       }
     }

@@ -78,6 +78,7 @@ section {
   border-radius: 10px;
   position: relative;
   margin-bottom: 10px;
+  padding-bottom: 35px;
 }
 .newTask2 {
   position: absolute;
@@ -159,12 +160,8 @@ input[type="text"]{
 
 } */
 @keyframes popTransition{
-  from{
-    /* transform: translate(0,0); */
-    
-    opacity: 1;
-  }
-to{
+
+from{
   transform: translate(-50%,-10px);
 
   opacity: 0.5;
@@ -172,7 +169,7 @@ to{
 
 }
 .popTransition{
-  animation: popTransition 0.5s ease-in  1 reverse;
+  animation: popTransition 0.5s ease-in  1 ;
 
 }
 
@@ -227,7 +224,9 @@ input[type="text"] {
   color: white;
 }
 .addBtn:hover,
-.closeBtn:hover {
+.closeBtn:hover ,
+.newTaskBtn
+{
   cursor: pointer;
 }
 /* new task card */
