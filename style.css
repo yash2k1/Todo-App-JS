@@ -121,6 +121,8 @@ section {
   max-width: 200px;
   overflow-wrap: break-word;
 margin: auto;
+margin-top: 10px;
+/* margin-bottom: 10px; */
 }
 .newTaskBtn {
   text-align: center;
@@ -129,6 +131,7 @@ margin: auto;
   font-size: 12px;
   padding: 0 5px;
   border-radius: 10px;
+  margin-left: 10px;
 }
 .newTaskplus:hover {
   cursor: pointer;
