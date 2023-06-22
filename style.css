@@ -10,6 +10,7 @@
 }
 
 body {
+  /* min-height: 100vh; */
   background: black;
   font-family: sans-serif;
 }
@@ -42,6 +43,11 @@ header {
   display: flex;
   align-items: baseline;
 }
+#addItem2{
+  align-items: center;
+
+}
+
 .addItemPlus {
   font-size: 50px;
   color: blue;
@@ -74,12 +80,15 @@ section {
   min-width: 250px;
   margin: 10px;
   min-height: 350px;
+  /* height: 350px; */
   background: white;
   border-radius: 10px;
   position: relative;
   margin-bottom: 10px;
-  padding-bottom: 35px;
+  padding-bottom: 65px;
 }
+/* card css on 2nd page */
+
 .newTask2 {
   position: absolute;
   left: 50%;
@@ -132,8 +141,7 @@ margin: auto;
   height: 30px;
   position: absolute;
   right: 20px;
-  top: 90%;
-  transform: translatey(-50%);
+  bottom:20px;
 }
 .newTaskDelete {
   font-size: 15px;
@@ -159,19 +167,35 @@ input[type="text"]{
   transform: translateY(20px);
 
 } */
-@keyframes popTransition{
+@keyframes popTransitionComing{
 
 from{
   transform: translate(-50%,-10px);
 
   opacity: 0.5;
+}}
+@keyframes popTransitionGoing{
+  from{
+    transform: translate(-50%,-50%);
+  
+    opacity: 1;
+  }
+to{
+  transform: translate(-50%,-10px);
+
+  opacity: 0.2;
 }
 
 }
-.popTransition{
-  animation: popTransition 0.5s ease-in  1 ;
+.popTransitionComing{
+  animation: popTransitionComing 0.5s ease-in  1 ;
 
 }
+.popTransitionGoing{
+  animation: popTransitionGoing 0.5s ease-in  1  ;
+
+}
+
 
 .popUp {
   border: 0.5px solid rgb(0, 0, 0);
@@ -242,5 +266,24 @@ input[type="text"] {
   section {
     display: flex;
     justify-content: center;
+  }
+  .popUp{
+    width: 300px;
+    height: 140px;
+  }
+  .popUpHead{
+    font-size: 24px;
+  }
+  .popUp input{
+    width: 250px;
+  }
+  .closeBtn,
+  .addBtn{
+    width: 50px;
+    height: 20px;
+    font-size:18px;
+  }
+  .popUpButtons{
+    width: 150px;
   }
 }

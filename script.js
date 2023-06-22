@@ -17,7 +17,9 @@ addItems1.addEventListener("click", () => {
   popUp(addItems1, heading);
 });
 // Funcrtion  one create popup
-
+// button ------->button that triger the popUp function
+//  heading----------->card heading 
+// newTast----->card div
 function popUp(button, heading, newTask) {
   // disableing the buttons
   button.style.pointerEvents = "none";
@@ -62,7 +64,7 @@ function popUp(button, heading, newTask) {
   header[1].classList.add("blur");
   // 2 transition
   // adding the animation class
-  popUp.classList.add("popTransition");
+  popUp.classList.add("popTransitionComing");
 
   // ----------close the popup-----------
   // close the popup by close btn
@@ -77,12 +79,16 @@ function popUp(button, heading, newTask) {
     section[0].classList.remove("blur");
     header[0].classList.remove("blur");
     header[1].classList.remove("blur");
-    //removing the pop from dom
-    popUp.remove();
     // enabling buttons
     button.style.pointerEvents = "auto";
     // removing the animation class
-    popUp.classList.remove("popTransition");
+    popUp.classList.remove("popTransitionComing");
+    popUp.classList.add("popTransitionGoing");
+    //removing the pop from dom
+    setTimeout(()=>{
+      popUp.remove();
+    },500)
+
   }
 
   // close the popup by add btn and creating new task card by clicking on add
@@ -120,6 +126,7 @@ function addNewCard(headingText, flag) {
   // new task
   let newTask = document.createElement("div");
   newTask.className = "newTask";
+
   // new  Task Head
   let newTaskHeading = document.createElement("div");
   newTaskHeading.className = "newTaskHeading";
