@@ -2,7 +2,8 @@
 let section = document.getElementsByTagName("section");
 let header = document.getElementsByTagName("header");
 header[1].style.display = "none";
-// creating a text node in section
+
+//--> creating a text node in section and connecting it.
 let textNode = document.createElement("div");
 textNode.textContent = " No items in the todo list ";
 section[0].appendChild(textNode);
@@ -10,24 +11,29 @@ section[0].appendChild(textNode);
 if (section[0].childNodes.length === 0) {
   textNode.style.display = "block";
 }
-// event listner on addItems it will show the "add new list" popUp
+
+//--> event listner on addItems it will show the "add new list" popUp
 let addItems1 = document.getElementById("addItem1");
 addItems1.addEventListener("click", () => {
   let heading = "Add new list";
   popUp(addItems1, heading);
 });
-// Funcrtion  one create popup
+
+//---> Function  one create popup
 // button ------->button that triger the popUp function
-//  heading----------->card heading 
-// newTast----->card div
+// heading----------->card heading 
+// newTast----->card div because of sub task
 function popUp(button, heading, newTask) {
   // disableing the buttons
   button.style.pointerEvents = "none";
+
+
 
   // popup
   let popUp = document.createElement("div");
   popUp.className = "popUp";
   popUp.id = "popUp";
+
   // popup header
   let popUpHead = document.createElement("div");
   popUpHead.className = "popUpHead";
@@ -95,18 +101,18 @@ function popUp(button, heading, newTask) {
   addBtn.addEventListener("click", () => {
       // PopUpInput.value is give the value that is taken from user input
     if (PopUpInput.value) {
-      let flag = "true"; //true is for subtask and false is for new task card
+      // let flag = "true"; //true is for subtask and false is for new task card
       if (heading === "Add new list") {
-        addNewCard(PopUpInput.value, !flag);
-         statusAddBtn = true;
-
+        addNewCard(PopUpInput.value);
+         statusAddBtn = true;//if true go to page 1
       }
+      
       if (heading === "Add new item") {
         // PopUpInput.value is give the value that is taken from user input
         // creating new subheading
         // close the popup by close btn and creating new task card by clicking on add
         subTask(PopUpInput.value, newTask);
-       statusAddBtn = false ;
+       statusAddBtn = false;//if false no change 
 
       }
     }
@@ -121,7 +127,7 @@ function popUp(button, heading, newTask) {
 }
 
 // for add new task cards
-function addNewCard(headingText, flag) {
+function addNewCard(headingText) {
   // -------------creating nodes------------
   // new task
   let newTask = document.createElement("div");
@@ -151,19 +157,6 @@ function addNewCard(headingText, flag) {
   let newTaskplus = document.createElement("i");
   newTaskplus.className = "fa-sharp fa-solid fa-circle-plus newTaskplus";
   // ----------------checking whether we want to create a new card or just add new subtask --------------------
-  // -----------if flag is true than subtask is being added---------
-  if (flag) {
-    section[0].appendChild(newTask);
-    newTask.appendChild(newTaskHeading);
-    newTask.appendChild(line);
-    newTask.appendChild(newTaskbuttons);
-    newTaskbuttons.appendChild(newTaskDelete);
-    newTaskbuttons.appendChild(newTaskplus);
-    newTask.appendChild(newTaskDescription);
-    newTaskDescription.appendChild(newTaskBtn);
-    console.log(headingText);
-    newTaskDescription.innerHTML = headingText;
-  } else {
     //-----------connecting nodes------------;
     section[0].appendChild(newTask);
     newTask.appendChild(newTaskHeading);
@@ -171,7 +164,7 @@ function addNewCard(headingText, flag) {
     newTask.appendChild(newTaskbuttons);
     newTaskbuttons.appendChild(newTaskDelete);
     newTaskbuttons.appendChild(newTaskplus);
-  }
+  
 
   // when we click on mark as done text decoration will apply on description
   newTaskBtn.addEventListener("click", () => {

@@ -174,7 +174,6 @@ input[type="text"]{
 
 from{
   transform: translate(-50%,-10px);
-
   opacity: 0.5;
 }}
 @keyframes popTransitionGoing{
@@ -191,11 +190,11 @@ to{
 
 }
 .popTransitionComing{
-  animation: popTransitionComing 0.5s ease-in  1 ;
+  animation: popTransitionComing 0.5s ease-in  1;
 
 }
 .popTransitionGoing{
-  animation: popTransitionGoing 0.5s ease-in  1  ;
+  animation: popTransitionGoing 0.5s ease-in  1;
 
 }
 
