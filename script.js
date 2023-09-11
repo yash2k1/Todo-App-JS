@@ -21,13 +21,11 @@ addItems1.addEventListener("click", () => {
 
 //---> Function  one create popup
 // button ------->button that triger the popUp function
-// heading----------->card heading 
+// heading----------->card heading
 // newTast----->card div because of sub task
 function popUp(button, heading, newTask) {
   // disableing the buttons
   button.style.pointerEvents = "none";
-
-
 
   // popup
   let popUp = document.createElement("div");
@@ -77,7 +75,7 @@ function popUp(button, heading, newTask) {
   closeBtn.addEventListener("click", () => {
     closeTask();
   });
-  // status btn 
+  // status btn
   let statusAddBtn = true;
 
   // close popup function
@@ -91,29 +89,27 @@ function popUp(button, heading, newTask) {
     popUp.classList.remove("popTransitionComing");
     popUp.classList.add("popTransitionGoing");
     //removing the pop from dom
-    setTimeout(()=>{
+    setTimeout(() => {
       popUp.remove();
-    },500)
-
+    }, 500);
   }
 
   // close the popup by add btn and creating new task card by clicking on add
   addBtn.addEventListener("click", () => {
-      // PopUpInput.value is give the value that is taken from user input
+    // PopUpInput.value is give the value that is taken from user input
     if (PopUpInput.value) {
       // let flag = "true"; //true is for subtask and false is for new task card
       if (heading === "Add new list") {
         addNewCard(PopUpInput.value);
-         statusAddBtn = true;//if true go to page 1
+        statusAddBtn = true; //if true go to page 1
       }
-      
+
       if (heading === "Add new item") {
         // PopUpInput.value is give the value that is taken from user input
         // creating new subheading
         // close the popup by close btn and creating new task card by clicking on add
         subTask(PopUpInput.value, newTask);
-       statusAddBtn = false;//if false no change 
-
+        statusAddBtn = false; //if false no change
       }
     }
     // this is removing the section text if any card is being added
@@ -157,14 +153,13 @@ function addNewCard(headingText) {
   let newTaskplus = document.createElement("i");
   newTaskplus.className = "fa-sharp fa-solid fa-circle-plus newTaskplus";
   // ----------------checking whether we want to create a new card or just add new subtask --------------------
-    //-----------connecting nodes------------;
-    section[0].appendChild(newTask);
-    newTask.appendChild(newTaskHeading);
-    newTask.appendChild(line);
-    newTask.appendChild(newTaskbuttons);
-    newTaskbuttons.appendChild(newTaskDelete);
-    newTaskbuttons.appendChild(newTaskplus);
-  
+  //-----------connecting nodes------------;
+  section[0].appendChild(newTask);
+  newTask.appendChild(newTaskHeading);
+  newTask.appendChild(line);
+  newTask.appendChild(newTaskbuttons);
+  newTaskbuttons.appendChild(newTaskDelete);
+  newTaskbuttons.appendChild(newTaskplus);
 
   // when we click on mark as done text decoration will apply on description
   newTaskBtn.addEventListener("click", () => {
@@ -197,13 +192,13 @@ function addNewCard(headingText) {
 }
 
 //subTask function is creating a subtask by taking the input value from user and
-//the headNode is with a parent node of Task Description
+//the headNode is a parent node of Task Description
 function subTask(value, headNode) {
   // new Task Description
   let newTaskDescription = document.createElement("div");
   newTaskDescription.className = "newTaskDescription";
   newTaskDescription.textContent = value;
-  // new Task Btn
+  // new Task Btn (markdone button)
   let newTaskBtn = document.createElement("button");
   newTaskBtn.className = "newTaskBtn";
   newTaskBtn.textContent = "Mark Done";
@@ -255,19 +250,17 @@ function unSelectCard() {
 // second page function
 
 let addItem2 = document.getElementById("addItem2");
-let isBtnClick = false;
 
 addItem2.addEventListener("click", () => {
-  let statusAddBtn = false;
-  popUp(addItem2, "Add new list", window.value, statusAddBtn);
+  popUp(addItem2, "Add new list", window.value); //window.value=selected card(newTask)
 });
-// add btn is pressed
+// if statusaddBtn=true then go to page no1 else no change
 function statusOfPopUp(statusAddBtn) {
   if (statusAddBtn) {
     unSelectCard();
   }
 }
-// back btn 
+// back btn
 let backBtn = document.getElementById("backBtn");
 backBtn.addEventListener("click", () => {
   unSelectCard();
